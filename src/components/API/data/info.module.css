@@ -1,0 +1,87 @@
+.element-info {
+    position: relative;
+    transition: transform 1s ease forwards;
+}
+
+.element-info:hover {
+    cursor: pointer;
+}
+
+.element-info::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    padding: 0.5rem;
+    background-color: rgba(0 0 0 /0.6);
+    color: white;
+    opacity: 0;
+    overflow: hidden;
+    border-radius: inherit;
+}
+
+.element-info:hover::after {
+    opacity: 1;
+    content: attr(text-content);
+    font-size: 0.7rem;
+    white-space: nowrap;
+}
+
+.right-bottom::after {
+    translate: 100% 100%;
+}
+
+.right-top::after {
+    translate: 100% -100%;
+}
+
+.right-middle::after {
+    translate: 100% 0;
+}
+
+.left-bottom::after {
+    translate: -100% 100%;
+}
+
+.left-top::after {
+    translate: -100% -100%;
+}
+
+.left-middle::after {
+    translate: -100% 0;
+}
+
+.middle-bottom::after {
+    translate: 0 100%;
+}
+
+.middle-top::after {
+    translate: 0 -100%;
+}
+
+.middle-middle::after {
+    translate: 0 0;
+}
+
+.image-translate::after {
+    translate: 0 -150%;
+}
+
+.card-translate-1::after,
+.card-translate-2::after {
+    width: fit-content;
+    height: min-content;
+    translate: 0;
+}
+
+.card-translate-1::after {
+    top: 10px;
+    left: 0;
+}
+
+.card-translate-2::after {
+    bottom: -20px;
+    right: 0;
+    border-radius: 1rem;
+}

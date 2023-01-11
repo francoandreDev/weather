@@ -1,0 +1,188 @@
+@layer normal, media;
+
+@layer normal {
+    .current-weather {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .icon-weather {
+        max-width: 300px;
+    }
+
+    h3 > i.fa-solid {
+        margin-left: 0.5rem;
+    }
+
+    .current-weather .current {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .separator {
+        width: 5px;
+        border-radius: 5px;
+        background-color: currentColor;
+        display: none;
+        transition-property: display;
+        transition-duration: 1s;
+        transition-timing-function: ease-in-out;
+    }
+
+    section.half-layout {
+        margin-bottom: 3rem;
+    }
+
+    .half-layout:first-child {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        font-size: 2rem;
+    }
+
+    .half-layout:first-child img {
+        width: 300px;
+        max-width: 90vw;
+    }
+
+    .half-layout:first-child > .info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .half-layout:first-child > .info > * {
+        font-size: 2.5rem;
+    }
+
+    .weather-description {
+        text-transform: capitalize;
+    }
+
+    .half-layout:last-child {
+        font-size: 1.3rem;
+        justify-self: center;
+        align-self: center;
+    }
+
+    .half-layout:last-child > .data {
+        display: grid;
+        text-align: center;
+    }
+
+    .half-layout:last-child > .data .cell {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .half-layout:last-child > .data .cell > *:last-child {
+        translate: 1rem 0;
+        font-size: 1.8rem;
+    }
+}
+
+@layer media {
+    @media only screen and (min-width: 500px) {
+        .current > .half-layout:last-child {
+            translate: 0;
+        }
+    }
+
+    @media only screen and (min-width: 600px) and (max-width: 700px) {
+        .half-layout:first-child > .info {
+            flex-direction: column;
+        }
+    }
+
+    @media only screen and (min-width: 600px) {
+        .current > .half-layout:last-child > .data {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+        }
+
+        .half-layout:last-child > .data {
+            place-items: center;
+            gap: 3rem;
+        }
+
+        .half-layout:last-child > .data .cell {
+            display: block;
+            gap: 0;
+        }
+
+        .half-layout:last-child > .data .cell > *:first-child {
+            position: relative;
+        }
+
+        .half-layout:last-child > .data .cell > *:first-child::before {
+            opacity: 0;
+        }
+
+        .half-layout:last-child > .data .cell > *:last-child {
+            translate: 0;
+        }
+    }
+
+    @media only screen and (min-width: 700px) {
+        .current-weather .current {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .current > .half-layout:first-child {
+            flex-direction: column;
+        }
+    }
+
+    @media only screen and (min-width: 900px) {
+        .half-layout:first-child {
+            flex-wrap: nowrap;
+        }
+    }
+
+    @media only screen and (min-width: 1000px) {
+        .separator {
+            display: block;
+            translate: 2vw 0;
+        }
+
+        .half-layout:last-child > .data {
+            gap: 4rem;
+            place-items: center;
+        }
+    }
+
+    @media only screen and (min-width: 1100px) {
+        .current > .half-layout:last-child > .data {
+            grid-template-areas:
+                'high fl-high wind'
+                'low fl-low precip';
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+        }
+
+        .current > .half-layout:last-child > .data > .cell:nth-child(1) {
+            grid-area: high;
+        }
+        .current > .half-layout:last-child > .data > .cell:nth-child(2) {
+            grid-area: low;
+        }
+        .current > .half-layout:last-child > .data > .cell:nth-child(3) {
+            grid-area: fl-high;
+        }
+        .current > .half-layout:last-child > .data > .cell:nth-child(4) {
+            grid-area: fl-low;
+        }
+        .current > .half-layout:last-child > .data > .cell:nth-child(5) {
+            grid-area: wind;
+        }
+        .current > .half-layout:last-child > .data > .cell:nth-child(6) {
+            grid-area: precip;
+        }
+    }
+}

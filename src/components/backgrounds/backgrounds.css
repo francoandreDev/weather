@@ -1,0 +1,36 @@
+.bg-day,
+.bg-night {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    min-height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-day {
+    background-image: linear-gradient(
+        to bottom,
+        #c8deff,
+        #a0bcef,
+        #7c9bdd,
+        #5a7acb,
+        #3a59b7
+    );
+}
+
+.bg-night {
+    background-image: linear-gradient(
+        to bottom,
+        #411974,
+        #261b61,
+        #10194d,
+        #041336,
+        #000820
+    );
+}
