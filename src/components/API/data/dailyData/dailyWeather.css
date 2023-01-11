@@ -1,59 +1,53 @@
-@layer normal, media;
+.week-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    place-items: center;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 5rem;
+}
 
-@layer normal {
+.card {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 1rem;
+    border: 1px solid currentColor;
+}
+
+.day-weather > *:first-child {
+    max-width: 90%;
+    width: 150px;
+}
+
+.day-weather > *:nth-child(2) {
+    font-size: 2rem;
+}
+
+.day-weather > *:last-child {
+    font-size: 2.5rem;
+}
+
+@media only screen and (min-width: 350px) {
     .week-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        place-items: center;
-        align-items: center;
-        gap: 3rem;
-        margin-bottom: 5rem;
-    }
-
-    .card {
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-        border-radius: 1rem;
-        border: 1px solid currentColor;
-    }
-
-    .day-weather > *:first-child {
-        max-width: 90%;
-        width: 150px;
-    }
-
-    .day-weather > *:nth-child(2) {
-        font-size: 2rem;
-    }
-
-    .day-weather > *:last-child {
-        font-size: 2.5rem;
+        padding: 0 5rem;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
 }
 
-@layer media {
-    @media only screen and (min-width: 350px) {
-        .week-grid {
-            padding: 0 5rem;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        }
+@media only screen and (min-width: 600px) {
+    .week-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        justify-items: stretch;
     }
+}
 
-    @media only screen and (min-width: 600px) {
-        .week-grid {
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            justify-items: stretch;
-        }
-    }
-
-    @media only screen and (min-width: 800px) {
-        .week-grid {
-            padding: 0 5vw;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-        }
+@media only screen and (min-width: 800px) {
+    .week-grid {
+        padding: 0 5vw;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     }
 }

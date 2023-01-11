@@ -1,73 +1,67 @@
-@layer normal, media;
+.data-weather-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
 
-@layer normal {
-    .data-weather-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
+.hourly-weather div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
+
+.data-weather-container > .hour-weather:nth-child(2n) {
+    background-color: transparent;
+}
+
+.data-weather-container > .hour-weather:nth-child(2n + 1) {
+    background-color: rgba(0 0 0 / 0.1);
+}
+
+.hour-weather {
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.inline-hours p:first-child {
+    font-size: 1.5rem;
+}
+
+.inline-hours p:last-child {
+    font-size: 1.8rem;
+}
+
+.hour-weather .container-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hour-weather .container-image > img {
+    width: clamp(50px, 5vw, 250px);
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hour-weather .inline-hours {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media only screen and (min-width: 500px) {
+    .hourly-weather span {
+        flex-wrap: nowrap;
     }
-
     .hourly-weather div {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    }
-
-    .data-weather-container > .hour-weather:nth-child(2n) {
-        background-color: transparent;
-    }
-
-    .data-weather-container > .hour-weather:nth-child(2n + 1) {
-        background-color: rgba(0 0 0 / 0.1);
-    }
-
-    .hour-weather {
-        width: 100%;
-        padding: 0.5rem;
-    }
-
-    .inline-hours p:first-child {
-        font-size: 1.5rem;
-    }
-
-    .inline-hours p:last-child {
-        font-size: 1.8rem;
-    }
-
-    .hour-weather .container-image {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .hour-weather .container-image > img {
-        width: clamp(50px, 5vw, 250px);
-        object-fit: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-    .hour-weather .inline-hours {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@layer media {
-    @media only screen and (min-width: 500px) {
-        .hourly-weather span {
-            flex-wrap: nowrap;
-        }
-        .hourly-weather div {
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
-
-    @media only screen and (min-width: 700px) {
-        .hourly-weather div {
-            grid-template-columns: repeat(6, 1fr);
-        }
+@media only screen and (min-width: 700px) {
+    .hourly-weather div {
+        grid-template-columns: repeat(6, 1fr);
     }
 }

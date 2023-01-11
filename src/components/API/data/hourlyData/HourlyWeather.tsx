@@ -22,7 +22,14 @@ const HourlyWeather = ({
         if (hourly) {
             const currentHour = hourly[0]?.timestamp;
             const currentHourFormat = hourFormatter.format(currentHour);
-            const isDay = currentHourFormat.endsWith('AM');
+            const hour = parseInt(currentHourFormat.slice(0, -2));
+            const meridian = currentHourFormat.slice(-2);
+            let isDay = false;
+            if (meridian === 'AM') {
+                isDay = hour >= 6 && hour < 12;
+            } else if (meridian === 'PM') {
+                isDay = hour <= 7 && hour > 0;
+            }
             setIsDay(isDay);
         }
     }, [hourly]);

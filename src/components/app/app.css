@@ -26,7 +26,8 @@
 @layer root {
     :root {
         --font-family: 'Prompt', sans-serif;
-        --font-color: hsla(0, 0%, 78%, 0.5);
+        --font-color-night: hsla(0, 0%, 75%, 0.5);
+        --font-color-day: hsla(0, 0%, 15%, 0.5);
     }
 }
 
@@ -37,6 +38,5 @@
         flex-direction: column;
         gap: 7rem;
         font-family: var(--font-family);
-        color: var(--font-color);
     }
 }
