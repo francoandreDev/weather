@@ -9,7 +9,7 @@ import {
     mphToKph,
 } from '../convertUnits';
 
-import infoCSS from '../info.module.css';
+import infoCSS from '../info.module.css'
 import './hourlyWeather.css';
 
 const HourlyWeather = ({
@@ -27,8 +27,10 @@ const HourlyWeather = ({
             let isDay = false;
             if (meridian === 'AM') {
                 isDay = hour >= 6 && hour < 12;
+                if(hour === 12) isDay=false;
             } else if (meridian === 'PM') {
                 isDay = hour <= 7 && hour > 0;
+                if(hour === 12) isDay=true;
             }
             setIsDay(isDay);
         }
